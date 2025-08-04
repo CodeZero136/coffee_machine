@@ -23,11 +23,17 @@ def report():
 
 def machine_maintenance():
     """prompts user to choose a maintenance operation."""
-    choice = input("What would you like to do? (Report/Add)").lower()
-    if choice == "report":
-        report()
-    elif choice == "add":
-        add()
+    while True:
+        choice = input("What would you like to do? (Report/Add)").lower()
+        if choice != "report" and choice != "add":
+            print ("Sorry, please repeat that again.")
+            continue
+        elif choice == "report":
+            report()
+            break
+        elif choice == "add":
+            add()
+            break
 
 def coins_calc(quarters, dimes, nickles, pennies):
     """calculates and returns entered coins total"""
